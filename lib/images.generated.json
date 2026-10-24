@@ -1,0 +1,154 @@
+{
+  "bolge-avcilar": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "bolge-beylikduzu": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "bolge-buyukcekmece": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "bolge-esenyurt": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "kirli-su-cekimi": {
+    "width": 1024,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1024
+    ]
+  },
+  "koltuk-fotografi-cekme": {
+    "width": 1024,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1024
+    ]
+  },
+  "koltuk-yikama-evde": {
+    "width": 1024,
+    "height": 1280,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1024
+    ]
+  },
+  "koltuk-yikama-randevuya-gelis": {
+    "width": 1024,
+    "height": 1280,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1024
+    ]
+  },
+  "once-sonra-kadife-koltuk": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "once-sonra-kose-koltuk": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "once-sonra-sandalye": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "yatak-yikama": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  },
+  "yikama-sonrasi-koltuk": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1536
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Figma "Primitives" koleksiyonu */
+:root {
+  --petrol-50: #eef8f9;
+  --petrol-100: #d3eef1;
+  --petrol-200: #a8dce2;
+  --petrol-300: #72c3cd;
+  --petrol-400: #3fa5b2;
+  --petrol-500: #1e8796;
+  --petrol-600: #146c7a;
+  --petrol-700: #0f5562;
+  --petrol-800: #0c4049;
+  --petrol-900: #082c33;
+
+  --kehribar-50: #fff6ec;
+  --kehribar-100: #fde6cc;
+  --kehribar-200: #fbcb95;
+  --kehribar-300: #f6aa5c;
+  --kehribar-400: #ee8b33;
+  --kehribar-500: #dd6f1a;
+  --kehribar-600: #b9561a;
+  --kehribar-700: #93431a;
+  --kehribar-800: #73361a;
+  --kehribar-900: #5c2d18;
+
+  --kum-0: #ffffff;
+  --kum-50: #faf8f5;
+  --kum-100: #f3efe9;
+  --kum-200: #e6e0d7;
+  --kum-300: #d1c9be;
+  --kum-400: #a79f94;
+  --kum-500: #7d766d;
+  --kum-600: #5c5650;
+  --kum-700: #423e3a;
+  --kum-800: #2a2826;
+  --kum-900: #171615;
+
+  --whatsapp: #25d366;
+  --whatsapp-ink: #062a14;
+
+  /* Sabit alt barın yüksekliği (12 + 52 + 16 + 1px kenarlık); body alt boşluğu buna göre. */
+  --sticky-bar-h: 81px;
+  --header-h: 64px;
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --header-h: 80px;
+  }
+}
+
+@theme inline {
+  --color-petrol-50: var(--petrol-50);
+  --color-petrol-100: var(--petrol-100);
+  --color-petrol-200: var(--petrol-200);
+  --color-petrol-300: var(--petrol-300);
+  --color-petrol-400: var(--petrol-400);
+  --color-petrol-500: var(--petrol-500);
+  --color-petrol-600: var(--petrol-600);
+  --color-petrol-700: var(--petrol-700);
+  --color-petrol-800: var(--petrol-800);
+  --color-petrol-900: var(--petrol-900);
+
+  --color-kehribar-50: var(--kehribar-50);
+  --color-kehribar-100: var(--kehribar-100);
+  --color-kehribar-200: var(--kehribar-200);
+  --color-kehribar-300: var(--kehribar-300);
+  --color-kehribar-400: var(--kehribar-400);
+  --color-kehribar-500: var(--kehribar-500);
+  --color-kehribar-600: var(--kehribar-600);
+  --color-kehribar-700: var(--kehribar-700);
+  --color-kehribar-800: var(--kehribar-800);
+  --color-kehribar-900: var(--kehribar-900);
+
+  --color-kum-0: var(--kum-0);
+  --color-kum-50: var(--kum-50);
+  --color-kum-100: var(--kum-100);
+  --color-kum-200: var(--kum-200);
+  --color-kum-300: var(--kum-300);
+  --color-kum-400: var(--kum-400);
+  --color-kum-500: var(--kum-500);
+  --color-kum-600: var(--kum-600);
+  --color-kum-700: var(--kum-700);
+  --color-kum-800: var(--kum-800);
+  --color-kum-900: var(--kum-900);
+
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-ink: var(--whatsapp-ink);
+
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* 1200px içerik + 20px yan boşluk; 1440'ta yanlarda 120px kalır. */
+@utility container-site {
+  width: 100%;
+  max-width: calc(1200px + 2 * 20px);
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @media (min-width: 48rem) {
+    max-width: calc(1200px + 2 * 32px);
+    padding-inline: 32px;
+  }
+  @media (min-width: 80rem) {
+    max-width: calc(1200px + 2 * 20px);
+    padding-inline: 20px;
+  }
+}
+
+@utility section-y {
+  padding-block: 56px;
+
+  @media (min-width: 48rem) {
+    padding-block: 96px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 8px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--kum-50);
+    color: var(--kum-700);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Mobilde sabit alt bar footer'ı kapatmasın. */
+    padding-bottom: calc(var(--sticky-bar-h) + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 48rem) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--petrol-600);
+    outline-offset: 2px;
+  }
+
+  /* Koyu zeminde odak halkası görünür kalsın. */
+  .on-dark :focus-visible {
+    outline-color: var(--petrol-300);
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}

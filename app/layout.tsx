@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Outfit } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { seo } from "@/lib/content";
 import { localBusinessSchema } from "@/lib/schema";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <JsonLd data={localBusinessSchema()} />
+        <Analytics />
       </body>
     </html>
   );

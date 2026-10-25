@@ -1,5 +1,5 @@
 import { pricing } from "@/lib/content";
-import { formatPrice, prices, site, whatsappHref } from "@/lib/site";
+import { formatPrice, prices, site, whatsappHref, whatsappMessages } from "@/lib/site";
 import { Button } from "./Button";
 import { ClockIcon } from "./icons";
 import { SectionHeading } from "./SectionHeading";
@@ -30,9 +30,17 @@ export function Pricing({ title = pricing.title, whatsappMessage }: { title?: st
                     </th>
                     <td className="py-4 pr-[18px] pl-3 text-right lg:py-[18px] lg:pr-6">
                       {p.price === null ? (
-                        <span className="text-[15px] font-semibold whitespace-nowrap text-petrol-700">
+                        <a
+                          href={whatsappHref(whatsappMessages.service(p.name.toLocaleLowerCase("tr")))}
+                          target="_blank"
+                          rel="noopener"
+                          data-cta="whatsapp"
+                          data-location="pricing"
+                          className="inline-flex min-h-11 items-center text-[15px] font-semibold whitespace-nowrap text-petrol-700 underline decoration-petrol-200 underline-offset-4 hover:text-petrol-900 hover:decoration-current"
+                        >
                           {pricing.pricePlaceholder}
-                        </span>
+                          <span className="sr-only"> – {p.name}</span>
+                        </a>
                       ) : (
                         <span className="font-heading text-xl font-semibold whitespace-nowrap text-petrol-800">
                           {formatPrice(p.price)}

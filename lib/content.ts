@@ -15,10 +15,10 @@ export const nav = [
 ];
 
 export const hero = {
-  badge: "Beylikdüzü, Esenyurt, Avcılar ve Büyükçekmece’de evinize geliyoruz",
+  badge: "Beylikdüzü, Esenyurt, Avcılar ve Büyükçekmece’de hizmet veriyoruz",
   title: "İstanbul’da evinizde koltuk yıkama",
   description:
-    "Profesyonel makineyle koltuğunuzu evinizde, derinlemesine yıkıyoruz. Leke, koku ve toz gider; koltuk birkaç saatte kurur.",
+    "Profesyonel makineyle koltuğunuzu evinizde, derinlemesine yıkıyoruz. Leke, koku ve toz gider.",
   image: "koltuk-yikama-evde" as ImageName,
   imageAlt: "Evde makineyle gri kumaş koltuk yıkama",
   whatsappLabel: "WhatsApp’tan fiyat al",
@@ -178,7 +178,7 @@ export const about = {
 export const areas = {
   eyebrow: "Bölgeler",
   title: "Hizmet verdiğimiz ilçeler",
-  text: "İstanbul Avrupa Yakası’nda bu dört ilçeye evinize gelerek hizmet veriyoruz. Yakın bir semtteyseniz yine de yazın.",
+  text: "İstanbul Avrupa Yakası’nda bu dört ilçede hizmet veriyoruz. Yakın bir semtteyseniz yine de yazın.",
   otherEyebrow: "Diğer bölgeler",
   otherTitle: "Yakındaki diğer hizmet bölgelerimiz",
   chipSuffix: "koltuk yıkama",
@@ -257,7 +257,7 @@ export const districtCopy = {
 export const stickyBar = { call: "Ara", whatsapp: "WhatsApp’tan yaz" };
 
 export const ogHome = {
-  subtitle: "Beylikdüzü, Esenyurt, Avcılar ve Büyükçekmece’de evinize geliyoruz.",
+  subtitle: "Beylikdüzü, Esenyurt, Avcılar ve Büyükçekmece’de yerinde, profesyonel koltuk yıkama.",
 };
 
 export const seo = {

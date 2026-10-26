@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Areas } from "@/components/Areas";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { DistrictAbout } from "@/components/DistrictAbout";
+import { AreaAbout } from "@/components/AreaAbout";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Gallery } from "@/components/Gallery";
@@ -61,7 +61,7 @@ export default async function DistrictPage({ params }: PageProps<"/[slug]">) {
         whatsappMessage={message}
       />
       <Neighborhoods district={district} />
-      <DistrictAbout district={district} />
+      <AreaAbout eyebrow={district.name} title={districtCopy.aboutTitle(district)} paragraphs={district.about} />
       <Services title={districtCopy.servicesTitle(district)} />
       <HowItWorks whatsappMessage={message} />
       <Pricing title={districtCopy.pricingTitle(district)} whatsappMessage={message} />

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { districts } from "@/lib/districts";
+import { neighborhoodPath, neighborhoods } from "@/lib/neighborhoods";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -13,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...neighborhoods.map((n) => ({
+      url: `${site.domain}${neighborhoodPath(n)}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 }

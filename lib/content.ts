@@ -254,6 +254,47 @@ export const districtCopy = {
   serviceType: "Koltuk yıkama",
 };
 
+// Mahalle sayfası şablon metinleri. `n` mahalle (`lib/neighborhoods.ts`), `d` bağlı olduğu ilçe.
+type N = { heading: string; officialName: string; locative: string; locativeAdj: string; dative: string };
+
+export const neighborhoodCopy = {
+  pageName: (n: N) => `${n.heading} koltuk yıkama`,
+  badge: (n: N, d: D) => `${d.name} · ${n.officialName}’ne evinize geliyoruz`,
+  title: (n: N) => `${n.heading} koltuk yıkama`,
+  quickEyebrow: "Kısa bilgiler",
+  quickTitle: (n: N) => `${n.locative} koltuk yıkama hakkında bilmeniz gerekenler`,
+  /** "Kısa bilgiler" kutusunun ilk cümlesi; ardından mahalleye özel `summary` gelir. */
+  quickLead: (n: N, d: D) =>
+    `Özen Koltuk Yıkama, ${d.genitive} ${n.officialName}’nde koltuk, köşe takımı, sandalye ve yatak yıkamayı makinesiyle evinize gelerek yapar. Fiyat, WhatsApp’tan gönderdiğiniz fotoğrafa göre ücretsiz verilir; ödeme iş bitince alınır.`,
+  factLabels: {
+    service: "Hizmet",
+    area: "Hizmet bölgesi",
+    price: "Fiyat",
+    drying: "Kuruma süresi",
+    hours: "Çalışma saatleri",
+    payment: "Ödeme",
+  },
+  factValues: {
+    service: "Evde koltuk, köşe takımı, sandalye ve yatak yıkama",
+    area: (n: N, d: D) => `${n.officialName}, ${d.name} / İstanbul`,
+    price: "Fotoğrafla ücretsiz ve net fiyat (WhatsApp)",
+    drying: "Kumaşa ve havaya göre genellikle 4–8 saat",
+    payment: "İş bittikten sonra; nakit veya havale/EFT",
+  },
+  aboutTitle: (n: N) => `${n.locative} evinize nasıl geliyoruz?`,
+  servicesTitle: (n: N) => `${n.locative} neleri yıkıyoruz?`,
+  pricingTitle: (n: N) => `${n.heading} koltuk yıkama fiyatları`,
+  faqTitle: (n: N) => `${n.heading} için sık sorulanlar`,
+  nearbyEyebrow: "Yakın mahalleler",
+  nearbyTitle: (n: N) => `${n.dative} yakın mahallelerde de evinize geliyoruz`,
+  nearbyAll: (d: D) => `${d.genitive} tüm mahalleleri`,
+  finalTitle: (n: N) => `${n.locativeAdj} eviniz için fiyatı hemen öğrenin`,
+  metaTitle: (n: N, d: D) => `${n.heading} Koltuk Yıkama, ${d.name} | Özen`,
+  metaDescription: (n: N, d: D) =>
+    `${n.officialName}, ${d.name}: koltuk, köşe takımı, sandalye ve yatak yıkamayı evinizde yapıyoruz. Fotoğraf gönderin, net fiyatı WhatsApp’tan öğrenin.`,
+  ogSubtitle: (n: N, d: D) => `${d.name} · ${n.officialName}’ne evinize geliyoruz.`,
+};
+
 export const stickyBar = { call: "Ara", whatsapp: "WhatsApp’tan yaz" };
 
 export const ogHome = {

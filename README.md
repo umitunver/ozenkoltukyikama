@@ -20,6 +20,8 @@ Node 20.9+ gerekir.
 |---|---|
 | `/` | `app/page.tsx` |
 | `/beylikduzu-koltuk-yikama`, `/esenyurt-koltuk-yikama`, `/avcilar-koltuk-yikama`, `/buyukcekmece-koltuk-yikama` | `app/[slug]/page.tsx` + `lib/districts.ts` (`generateStaticParams`) |
+| `/beylikduzu-koltuk-yikama/yakuplu` gibi mahalle sayfaları | `app/[slug]/[mahalle]/page.tsx` + `lib/neighborhoods.ts` (veri: `lib/neighborhoods-beylikduzu.ts`) |
+| `/llms.txt` | `app/llms.txt/route.ts` — yapay zekâ arama motorları için düz metin site özeti |
 | `/sitemap.xml`, `/robots.txt` | `app/sitemap.ts`, `app/robots.ts` |
 | `/og/<sayfa>.png` | `app/og/[file]/route.tsx` — Open Graph / Twitter görselleri (`next/og`, build sırasında) |
 
@@ -32,6 +34,7 @@ Node 20.9+ gerekir.
 | WhatsApp hazır mesajları | `lib/site.ts` → `whatsappMessages` |
 | İlçe metinleri, mahalleler, ilçe SSS | `lib/districts.ts` (Türkçe ekler elle yazılı: `genitive`, `locative`, `locativeAdj`, `iAmIn`) |
 | Ana sayfa bölüm metinleri, SSS, galeri, ilçe sayfası şablon başlıkları | `lib/content.ts` |
+| Mahalle sayfaları (yerel bilgiler, SSS, komşu mahalleler, görsel) | `lib/neighborhoods-<ilçe>.ts`. Yeni kayıt eklemek sayfayı, sitemap'i, OG görselini, ilçe sayfasındaki bağlantıyı ve llms.txt'yi otomatik oluşturur. Yerel bilgileri yalnızca kaynaklı yazın (`sources` alanı); aynı metni mahalle adını değiştirerek kopyalamayın. |
 | Renk / font token'ları | `app/globals.css` (`:root` değişkenleri + Tailwind `@theme`) |
 
 ### Önce / sonra bölümü (`showBeforeAfter`)

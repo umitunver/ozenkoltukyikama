@@ -91,6 +91,126 @@
       1024
     ]
   },
+  "mahalle-adnan-kahveci": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-baris": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-buyuksehir": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-cumhuriyet": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-dereagzi": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-gurpinar": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-kavakli": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-marmara": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-sahil": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "mahalle-yakuplu": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
   "once-sonra-kadife-koltuk": {
     "width": 1536,
     "height": 1024,

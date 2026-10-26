@@ -1,8 +1,9 @@
 // schema.org JSON-LD üreticileri.
 
-import { districtCopy } from "./content";
+import { districtCopy, neighborhoodCopy } from "./content";
 import type { District, Faq } from "./districts";
 import { imageSrc } from "./images";
+import { neighborhoodPath, type Neighborhood } from "./neighborhoods";
 import { priceRange, site } from "./site";
 
 const businessId = `${site.domain}/#business`;
@@ -74,6 +75,28 @@ export function serviceSchema(district: District) {
     url: `${site.domain}/${district.slug}`,
     description: district.description,
     areaServed: { "@type": "City", name: district.name },
+    provider: { "@id": businessId },
+  };
+}
+
+export function neighborhoodServiceSchema(n: Neighborhood, district: District) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: neighborhoodCopy.pageName(n),
+    serviceType: districtCopy.serviceType,
+    url: `${site.domain}${neighborhoodPath(n)}`,
+    description: n.description,
+    areaServed: {
+      "@type": "Place",
+      name: n.officialName,
+      ...(n.wikipedia ? { sameAs: n.wikipedia } : {}),
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: district.name,
+        containedInPlace: { "@type": "City", name: site.address.city },
+      },
+    },
     provider: { "@id": businessId },
   };
 }

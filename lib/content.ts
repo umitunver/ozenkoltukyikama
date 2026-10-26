@@ -228,6 +228,7 @@ export const footer = {
   contactTitle: "İletişim",
   whatsappLabel: "WhatsApp",
   facebookLabel: "Facebook sayfamız",
+  youtubeLabel: "YouTube kanalımız",
 };
 
 export const breadcrumb = { home: "Ana sayfa", areas: "Bölgeler" };

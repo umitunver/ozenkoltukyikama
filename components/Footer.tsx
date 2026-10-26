@@ -75,6 +75,18 @@ export function Footer({ whatsappMessage }: { whatsappMessage: string }) {
                   </a>
                 </li>
                 <li>
+                  <a
+                    href={site.social.facebook}
+                    target="_blank"
+                    rel="noopener"
+                    data-cta="facebook"
+                    data-location="footer"
+                    className={linkClass}
+                  >
+                    {footer.facebookLabel}
+                  </a>
+                </li>
+                <li>
                   <a href={`mailto:${site.email}`} className={`${linkClass} break-all`}>
                     {site.email}
                   </a>

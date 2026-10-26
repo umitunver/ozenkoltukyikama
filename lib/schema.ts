@@ -29,6 +29,7 @@ export function localBusinessSchema() {
       addressCountry: site.address.country,
     },
     areaServed: site.areas.map((name) => ({ "@type": "City", name })),
+    sameAs: Object.values(site.social),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

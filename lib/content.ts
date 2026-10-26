@@ -227,6 +227,7 @@ export const footer = {
   areasTitle: "Bölgeler",
   contactTitle: "İletişim",
   whatsappLabel: "WhatsApp",
+  facebookLabel: "Facebook",
 };
 
 export const breadcrumb = { home: "Ana sayfa", areas: "Bölgeler" };

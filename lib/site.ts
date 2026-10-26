@@ -20,6 +20,8 @@ export const site = {
     closes: "21:00",
   },
   areas: ["Beylikdüzü", "Esenyurt", "Avcılar", "Büyükçekmece"],
+  // Sosyal medya hesapları: footer bağlantıları ve JSON-LD `sameAs`
+  social: { facebook: "https://www.facebook.com/profile.php?id=61595719869436" },
   gaMeasurementId: "G-E4G2FDMDM7",
   // Arama motoru site doğrulama kodları (<meta name="…-verification">)
   verification: { yandex: "6af29c627c51c0b9" },

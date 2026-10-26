@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description: seo.homeDescription,
   applicationName: site.name,
   appleWebApp: { title: site.shortName },
+  verification: site.verification,
   formatDetection: { telephone: false, email: false, address: false },
 };
 

@@ -21,6 +21,8 @@ export const site = {
   },
   areas: ["Beylikdüzü", "Esenyurt", "Avcılar", "Büyükçekmece"],
   gaMeasurementId: "G-E4G2FDMDM7",
+  // Arama motoru site doğrulama kodları (<meta name="…-verification">)
+  verification: { yandex: "6af29c627c51c0b9" },
 
   // Önce / sonra bölümü. Şu anki görseller yapay zekâ ile üretildi, gerçek iş sonucu değil.
   // Gerçek fotoğraflar `lib/content.ts` içindeki `beforeAfter` listesine eklenince `true` yapın.

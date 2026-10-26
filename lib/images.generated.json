@@ -91,126 +91,6 @@
       1024
     ]
   },
-  "mahalle-adnan-kahveci": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-baris": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-buyuksehir": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-cumhuriyet": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-dereagzi": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-gurpinar": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-kavakli": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-marmara": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-sahil": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "mahalle-yakuplu": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
   "once-sonra-kadife-koltuk": {
     "width": 1536,
     "height": 1024,
@@ -247,7 +127,7 @@
       1536
     ]
   },
-  "sahne-asansorsuz-merdiven": {
+  "pro-aile-evi": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -259,7 +139,7 @@
       1264
     ]
   },
-  "sahne-bahce-minder": {
+  "pro-berjer": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -271,7 +151,7 @@
       1264
     ]
   },
-  "sahne-berjer": {
+  "pro-evcil-hayvan": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -283,7 +163,7 @@
       1264
     ]
   },
-  "sahne-cocuk-yatagi": {
+  "pro-kadife": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -295,7 +175,7 @@
       1264
     ]
   },
-  "sahne-cocuklu-ev": {
+  "pro-kirli-su-nozul": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -307,7 +187,7 @@
       1264
     ]
   },
-  "sahne-evcil-hayvan": {
+  "pro-koltuk-yikama": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -319,7 +199,7 @@
       1264
     ]
   },
-  "sahne-gol-manzara": {
+  "pro-kose-koltuk": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -331,7 +211,7 @@
       1264
     ]
   },
-  "sahne-havuzlu-site": {
+  "pro-leke-on-islem": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -343,7 +223,7 @@
       1264
     ]
   },
-  "sahne-kirli-su-tanki": {
+  "pro-makine": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -355,7 +235,7 @@
       1264
     ]
   },
-  "sahne-koy-evi": {
+  "pro-sandalye": {
     "width": 1264,
     "height": 848,
     "widths": [
@@ -367,55 +247,7 @@
       1264
     ]
   },
-  "sahne-ogrenci-evi": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "sahne-rezidans-kule": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "sahne-site-giris": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "sahne-u-kose": {
-    "width": 1264,
-    "height": 848,
-    "widths": [
-      320,
-      480,
-      640,
-      768,
-      1080,
-      1264
-    ]
-  },
-  "sahne-yazlik": {
+  "pro-yatak": {
     "width": 1264,
     "height": 848,
     "widths": [

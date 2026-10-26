@@ -86,11 +86,11 @@ export function neighborhoodServiceSchema(n: Neighborhood, district: District) {
     name: neighborhoodCopy.pageName(n),
     serviceType: districtCopy.serviceType,
     url: `${site.domain}${neighborhoodPath(n)}`,
-    description: n.description,
+    description: neighborhoodCopy.description(n, district),
     areaServed: {
       "@type": "Place",
       name: n.officialName,
-      ...(n.wikipedia ? { sameAs: n.wikipedia } : {}),
+      ...(n.wikipedia ? { sameAs: encodeURI(n.wikipedia) } : {}),
       containedInPlace: {
         "@type": "AdministrativeArea",
         name: district.name,

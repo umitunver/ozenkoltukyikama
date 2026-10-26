@@ -36,10 +36,10 @@ export const districts: District[] = [
     imageAlt: "Beylikdüzü’nde site dairesinde köşe koltuk yıkama",
     neighborhoods: ["Adnan Kahveci", "Barış", "Büyükşehir", "Cumhuriyet", "Dereağzı", "Gürpınar", "Kavaklı", "Marmara", "Sahil", "Yakuplu"],
     description:
-      "Beylikdüzü’ndeki evinize makinemizle geliyor, koltuğunuzu yerinde ve derinlemesine yıkıyoruz. Site ve rezidanslarda daireye kadar çıkıyoruz; koltuğu taşımanıza gerek yok.",
+      "Beylikdüzü’nde koltuk yıkama, köşe koltuk yıkama ve leke çıkarma hizmetini Kärcher Puzzi 8/1 profesyonel makinesiyle yerinde yapıyoruz. Leke, koku ve toz kumaşın derinliğinden alınır.",
     about: [
-      "Beylikdüzü’nde evlerin büyük kısmı site ve yüksek katlı rezidanslarda. Randevudan önce site girişi, otopark ve asansör bilgisini sizden alıyor, gelişimizi buna göre planlıyoruz.",
-      "Yakuplu ve Kavaklı’dan Gürpınar ve Sahil Mahallesi’ne kadar ilçenin her yerine geliyoruz. Açık renkli köşe takımlarında ve kadife koltuklarda kumaşa uygun ürünle çalışıyor, fazla suyu iyice çekerek koltuğun çabuk kurumasını sağlıyoruz.",
+      "Beylikdüzü’nde koltuk, köşe takımı, sandalye ve yatakları Kärcher Puzzi 8/1 ile püskürtme-emme yöntemiyle yıkıyoruz. Önce koltuk vakumlanır, lekelere kumaşa uygun ön işlem yapılır; ardından temiz su kumaşın içine püskürtülüp kirle birlikte geri çekilir.",
+      "Açık renkli köşe takımlarında ve kadife koltuklarda kumaşa uygun ürünle, nemi düşük tutarak çalışıyoruz. Son emmeyle fazla su alındığı için koltuk genellikle 4–8 saatte kurur. Yakuplu ve Kavaklı’dan Gürpınar ve Sahil’e kadar ilçenin tüm mahallelerinde aynı hizmeti veriyoruz.",
     ],
     faq: [
       {
@@ -47,8 +47,8 @@ export const districts: District[] = [
         a: "Adnan Kahveci, Barış, Büyükşehir, Cumhuriyet, Dereağzı, Gürpınar, Kavaklı, Marmara, Sahil ve Yakuplu dahil Beylikdüzü’nün 10 mahallesinin tamamına geliyoruz.",
       },
       {
-        q: "Site ve rezidanslara geliyor musunuz?",
-        a: "Evet. Güvenlikten giriş izni gerekiyorsa randevu sırasında haber vermeniz yeterli; makineyle daireye kadar çıkıyoruz.",
+        q: "Beylikdüzü’nde leke çıkarma da yapıyor musunuz?",
+        a: "Evet. Yemek, içecek, ter ve evcil hayvan lekelerine kumaşa uygun ön işlem yapıp ardından koltuğu makineyle yıkıyoruz. Çıkmayabilecek lekeleri işe başlamadan önce söylüyoruz.",
       },
       {
         q: "Beylikdüzü için ek yol ücreti var mı?",
@@ -78,10 +78,10 @@ export const districts: District[] = [
       "Yeşilkent", "Yunus Emre", "Zafer",
     ],
     description:
-      "Esenyurt’taki evinize gelip koltuk, köşe takımı ve sandalyelerinizi yerinde yıkıyoruz. Fotoğrafını gönderin, net fiyatı ve en yakın boş saati yazalım.",
+      "Esenyurt’ta koltuk, köşe takımı, sandalye ve yatak yıkama ile leke çıkarma. Kärcher Puzzi 8/1 ile yerinde derinlemesine temizlik; fotoğraf gönderin, net fiyatı hemen yazalım.",
     about: [
-      "Esenyurt İstanbul’un en kalabalık ilçelerinden biri; çocuklu ve evcil hayvanlı evlerde koltuklar da en çok yorulan eşyalar oluyor. Yemek, süt ve çikolata lekeleri ile idrar kokusu için kumaşa uygun ürünle ön işlem yapıyor, ardından makineyle derinlemesine yıkıyoruz.",
-      "Esenkent, Yenikent, Saadetdere, Pınar, Mehterçeşme ve diğer tüm mahallelere geliyoruz. Yüksek katlı binalarda asansör yoksa önceden haber verin, gelişimizi ona göre planlayalım.",
+      "Çocuklu ve evcil hayvanlı evlerde koltuklar en çok yıpranan eşyalardır. Yemek, süt ve çikolata lekeleri ile idrar kokusu için kumaşa uygun ürünle ön işlem yapıyor, ardından Kärcher Puzzi 8/1 ile koltuğu derinlemesine yıkıyoruz.",
+      "Püskürtme-emme yönteminde su kumaşın içine püskürtülür ve kirle birlikte geri çekilir; kumaşta deterjan kalıntısı kalmaz. Esenkent, Yenikent, Saadetdere, Pınar, Mehterçeşme dahil Esenyurt’un 43 mahallesinde aynı hizmeti veriyoruz.",
     ],
     faq: [
       {
@@ -113,10 +113,10 @@ export const districts: District[] = [
     imageAlt: "Avcılar’da kumaş koltukta leke ön işlemi",
     neighborhoods: ["Ambarlı", "Cihangir", "Denizköşkler", "Firuzköy", "Gümüşpala", "Merkez", "Mustafa Kemal Paşa", "Tahtakale", "Üniversite", "Yeşilkent"],
     description:
-      "Avcılar’daki evinize makinemizle geliyoruz; koltuğunuzu yerinde yıkıyor, leke ve kokuyu gideriyoruz. Taşıma yok, söküp takma yok.",
+      "Avcılar’da profesyonel koltuk yıkama ve leke çıkarma. Kärcher Puzzi 8/1 ile koltuk, köşe takımı ve yataklarınızı yerinde yıkıyor, leke ve kokuyu kumaşın derinliğinden gideriyoruz.",
     about: [
-      "Avcılar’da eski ve yeni binalar iç içe. Asansörsüz apartmanlarda makinemizi kendimiz taşıyoruz; sizin bir şey hazırlamanıza gerek yok, koltuğun etrafını biraz boşaltmanız yeterli.",
-      "Göl ve denize yakın evlerde hava nemli olabiliyor. Bu yüzden yıkamanın sonunda fazla suyu iyice çekiyor, kurumayı hızlandırmak için nasıl havalandırmanız gerektiğini anlatıyoruz. Ambarlı, Cihangir, Denizköşkler, Gümüşpala, Üniversite ve Firuzköy dahil tüm mahallelere geliyoruz.",
+      "Avcılar’da koltuk yıkamayı Kärcher Puzzi 8/1 profesyonel püskürtme-emme makinesiyle yapıyoruz. Koltuk önce vakumlanır, lekelere kumaşa uygun ön işlem yapılır; ardından temiz su kumaşın içine püskürtülüp kir ve lekeyle birlikte geri çekilir.",
+      "Yıkamanın sonunda fazla suyu iyice çekiyor, kumaşta ürün kalıntısı bırakmamak için durulama yapıyoruz; koltuk genellikle 4–8 saatte kurur. Ambarlı, Cihangir, Denizköşkler, Gümüşpala, Üniversite ve Firuzköy dahil Avcılar’ın tüm mahallelerinde hizmet veriyoruz.",
     ],
     faq: [
       {
@@ -124,8 +124,8 @@ export const districts: District[] = [
         a: "Ambarlı, Cihangir, Denizköşkler, Firuzköy, Gümüşpala, Merkez, Mustafa Kemal Paşa, Tahtakale, Üniversite ve Yeşilkent dahil Avcılar’ın 10 mahallesinin tamamına geliyoruz.",
       },
       {
-        q: "Asansörsüz binalara geliyor musunuz?",
-        a: "Evet. Makinemiz taşınabilir, merdivenle de çıkarıyoruz; bunun için ek ücret almıyoruz.", // TODO: onayla
+        q: "Avcılar’da hangi eşyaları yıkıyorsunuz?",
+        a: "Tekli, ikili ve üçlü koltuklar, L ve U köşe takımları, minderli sandalyeler ve tek ya da çift kişilik yatakları yıkıyoruz. Kumaş, kadife ve keten döşemelerde kumaşa uygun ürün kullanıyoruz.",
       },
       {
         q: "Nemli havada koltuk ne kadar sürede kurur?",
@@ -152,10 +152,10 @@ export const districts: District[] = [
       "Mimarsinan", "Murat Çeşme", "Pınartepe", "Sinanoba", "Türkoba", "Ulus", "Yenimahalle",
     ],
     description:
-      "Büyükçekmece’deki apartman, site ve müstakil evlere geliyoruz. Koltuk, köşe takımı ve sandalyelerinizi evinizde, yerinde yıkıyoruz.",
+      "Büyükçekmece’de koltuk yıkama, köşe koltuk yıkama ve leke çıkarma. Kärcher Puzzi 8/1 ile koltuk, sandalye ve yataklarınızı yerinde, derinlemesine yıkıyoruz.",
     about: [
-      "Büyükçekmece’de bahçeli site evleri ve müstakil evler çok. Geniş köşe takımlarını ve büyük oturma gruplarını tek randevuda yıkayabiliyoruz.",
-      "Mimarsinan, Kumburgaz, Alkent 2000, Kamiloba, Celaliye, Fatih ve diğer tüm mahallelere geliyoruz. Yazlık olarak kullanılan evlerde, uzun süre kapalı kalan koltukların toz ve rutubet kokusunu gidermek için sezon açılışında yıkama iyi bir başlangıç olur.",
+      "Geniş köşe takımlarını, büyük oturma gruplarını, sandalye ve yatakları tek randevuda yıkıyoruz. Kärcher Puzzi 8/1 ile su kumaşın içine püskürtülür ve kirle birlikte geri çekilir; leke, toz ve koku kumaşın derinliğinden alınır.",
+      "Uzun süre kapalı kalan koltuklardaki toz ve rutubet kokusunu derinlemesine yıkamayla gideriyoruz. Mimarsinan, Kumburgaz, Alkent 2000, Kamiloba, Celaliye ve Fatih dahil Büyükçekmece’nin 24 mahallesinde aynı hizmeti veriyoruz.",
     ],
     faq: [
       {
@@ -163,8 +163,8 @@ export const districts: District[] = [
         a: "Mimarsinan, Kumburgaz, Alkent 2000, Kamiloba ve Celaliye dahil Büyükçekmece’nin 24 mahallesinin tamamına geliyoruz.",
       },
       {
-        q: "Yazlık evlere geliyor musunuz?",
-        a: "Evet. Sezon açılışında veya kapanışında koltuk, minder ve yatakları tek randevuda yıkayabiliyoruz.",
+        q: "Bahçe minderleri ve yatakları da yıkıyor musunuz?",
+        a: "Evet. Koltukların yanında bahçe ve oturma minderlerini, tek ve çift kişilik yatakları da aynı randevuda yıkıyoruz.",
       },
       {
         q: "Merkezden uzak mahalleler için ek ücret var mı?",

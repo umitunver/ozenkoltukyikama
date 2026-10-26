@@ -34,7 +34,7 @@ Node 20.9+ gerekir.
 | WhatsApp hazır mesajları | `lib/site.ts` → `whatsappMessages` |
 | İlçe metinleri, mahalleler, ilçe SSS | `lib/districts.ts` (Türkçe ekler elle yazılı: `genitive`, `locative`, `locativeAdj`, `iAmIn`) |
 | Ana sayfa bölüm metinleri, SSS, galeri, ilçe sayfası şablon başlıkları | `lib/content.ts` |
-| Mahalle sayfaları (yerel bilgiler, SSS, komşu mahalleler, görsel) | `lib/neighborhoods-<ilçe>.ts`. Yeni kayıt eklemek sayfayı, sitemap'i, OG görselini, ilçe sayfasındaki bağlantıyı ve llms.txt'yi otomatik oluşturur. Yerel bilgileri yalnızca kaynaklı yazın (`sources` alanı); aynı metni mahalle adını değiştirerek kopyalamayın. |
+| Mahalle sayfaları (ad, Türkçe ekler, komşu mahalleler) | `lib/neighborhoods-<ilçe>.ts`. Yeni kayıt eklemek sayfayı, sitemap'i, OG görselini, ilçe sayfasındaki bağlantıyı ve llms.txt'yi otomatik oluşturur. Sayfa metni hizmet odaklıdır ve `lib/content.ts` içindeki `neighborhoodCopy` ile `neighborhoodThemes`'ten gelir; her mahalleye sırayla bir hizmet konusu (köşe koltuk, leke çıkarma, yatak …) ve onun Kärcher Puzzi 8/1 görseli atanır. Mahalle sayfalarına nüfus, tarihçe gibi yerel bilgi yazılmaz. |
 | Renk / font token'ları | `app/globals.css` (`:root` değişkenleri + Tailwind `@theme`) |
 
 ### Önce / sonra bölümü (`showBeforeAfter`)

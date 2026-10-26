@@ -255,19 +255,234 @@ export const districtCopy = {
 };
 
 // Mahalle sayfası şablon metinleri. `n` mahalle (`lib/neighborhoods.ts`), `d` bağlı olduğu ilçe.
-type N = { heading: string; officialName: string; locative: string; locativeAdj: string; dative: string };
+// Sayfalar hizmet odaklıdır: mahalle adı yalnızca başlık, özet ve hizmet bölgesinde geçer; yerel bilgi yazılmaz.
+type N = { name: string; heading: string; officialName: string; locative: string; locativeAdj: string; dative: string };
+type NI = N & { index: number };
+
+const METHOD = "Kärcher Puzzi 8/1";
+
+/** Her mahalle sayfasının öne çıkardığı hizmet konusu; görsel ve "Bölge hakkında" bölümü buradan gelir. */
+export type NeighborhoodTheme = {
+  image: ImageName;
+  imageAlt: (n: N) => string;
+  eyebrow: string;
+  title: (n: N) => string;
+  paragraphs: (n: N, d: D) => string[];
+  faq: (n: N) => Faq;
+};
+
+export const neighborhoodThemes: NeighborhoodTheme[] = [
+  {
+    image: "pro-koltuk-yikama",
+    imageAlt: (n) => `${n.locative} ${METHOD} ile kumaş koltuk yıkama`,
+    eyebrow: "Koltuk yıkama",
+    title: (n) => `${n.locative} profesyonel koltuk yıkama`,
+    paragraphs: (n) => [
+      `Koltuk yıkama, yüzeydeki tozu almakla bitmez. Kumaşın içine işleyen ter, toz ve kir ancak püskürtme-emme yöntemiyle çıkar. ${n.locative} koltuklarınızı ${METHOD} profesyonel makinesiyle yerinde, derinlemesine yıkıyoruz.`,
+      "Önce koltuk vakumlanır, ardından lekelere kumaşa uygun ön işlem yapılır. Makine temiz suyu kumaşın içine püskürtür ve kirle birlikte geri çeker; son emmeyle fazla nem alınır, koltuk hızlı kurur.",
+    ],
+    faq: (n) => ({
+      q: `${n.locative} koltuk yıkama için nasıl randevu alırım?`,
+      a: "WhatsApp’tan koltuğunuzun fotoğrafını ve adresinizi gönderin. Net fiyatı ve en yakın uygun saatleri yazıyor, size uyan saati birlikte seçiyoruz.",
+    }),
+  },
+  {
+    image: "pro-kose-koltuk",
+    imageAlt: (n) => `${n.locative} ${METHOD} ile L köşe koltuk yıkama`,
+    eyebrow: "Köşe koltuk yıkama",
+    title: (n) => `${n.locative} köşe koltuk yıkama`,
+    paragraphs: (n) => [
+      `L ve U köşe takımlarında kir en çok oturma minderlerinde, kolçaklarda ve birleşim yerlerinde birikir. ${n.locative} köşe koltuğunuzu minderleri, sırtı ve kolçaklarıyla birlikte tek seferde yıkıyoruz.`,
+      `Geniş yüzeylerde ${METHOD} ile parça parça çalışıyor, her bölümde kirli suyu tamamen çekiyoruz. Böylece kumaşta halka ya da renk farkı kalmaz, takımın tamamı aynı tonda temizlenir.`,
+    ],
+    faq: (n) => ({
+      q: `${n.heading} köşe koltuk yıkama fiyatı nasıl belirleniyor?`,
+      a: "Köşe takımının boyutuna (L veya U), oturma sayısına ve kumaşına göre belirlenir. Fotoğrafını WhatsApp’tan gönderin, minderler dahil net fiyatı ücretsiz yazalım.",
+    }),
+  },
+  {
+    image: "pro-leke-on-islem",
+    imageAlt: () => "Krem rengi koltukta kahve lekesine ön işlem uygulanması",
+    eyebrow: "Leke çıkarma",
+    title: (n) => `${n.locative} koltuk leke çıkarma`,
+    paragraphs: () => [
+      "Her leke aynı ürünle çıkmaz. Kahve, çay, yemek, ter, makyaj ve evcil hayvan lekelerinin türünü belirliyor, kumaşa uygun ürünle ön işlem yapıyoruz. Ürün lekeyi çözdükten sonra koltuğu makineyle yıkayıp lekeyi kumaştan tamamen çekiyoruz.",
+      "Yemek, içecek, ter ve toz lekelerinin büyük çoğunluğu çıkar. Çok eski, boya veya mürekkep lekelerinde ne kadarının çıkabileceğini işe başlamadan önce açıkça söylüyoruz.",
+    ],
+    faq: () => ({
+      q: "Koltuktaki eski lekeler çıkar mı?",
+      a: "Lekenin türüne ve ne kadar süredir kumaşta olduğuna bağlı. Eski lekelerin çoğu belirgin şekilde açılır ya da tamamen çıkar; kalıcı olabilecek lekeleri yıkamadan önce fotoğraf üzerinden söylüyoruz.",
+    }),
+  },
+  {
+    image: "pro-kirli-su-nozul",
+    imageAlt: () => "Kärcher yıkama başlığında koltuktan çekilen kirli su",
+    eyebrow: "Derinlemesine temizlik",
+    title: (n) => `${n.locative} derinlemesine koltuk temizliği`,
+    paragraphs: (n) => [
+      `Püskürtme-emme yönteminde temiz su ve kumaşa uygun ürün kumaşın liflerine kadar püskürtülür, aynı anda kirle birlikte geri çekilir. ${n.locative} yaptığımız yıkamalarda kirin kumaştan nasıl çıktığını şeffaf yıkama başlığında siz de görürsünüz.`,
+      "Bu yöntem yüzeysel silmeden farklı olarak koltuğun içinde biriken toz, ter ve kokuyu da alır. Kumaşta deterjan kalıntısı bırakmamak için son geçişte durulama yapıyoruz.",
+    ],
+    faq: () => ({
+      q: "Koltuk yıkamada hangi makineyi kullanıyorsunuz?",
+      a: `${METHOD} profesyonel püskürtme-emme makinesi kullanıyoruz. Temiz ve kirli su ayrı haznelerde tutulur; kumaşa püskürtülen su kirle birlikte geri çekilir.`,
+    }),
+  },
+  {
+    image: "pro-yatak",
+    imageAlt: (n) => `${n.locative} çift kişilik yatak yıkama`,
+    eyebrow: "Yatak yıkama",
+    title: (n) => `${n.locative} yatak yıkama`,
+    paragraphs: (n) => [
+      `Yatak her gece ter, toz ve ölü deri ile karşılaşır; zamanla sarı lekeler ve koku oluşur. ${n.locative} tek ve çift kişilik yatakları iki yüzüyle birlikte ${METHOD} ile derinlemesine yıkıyoruz.`,
+      "Yıkamadan önce yatak vakumlanır, lekelere ön işlem yapılır. Son emmeyle fazla nem alındığı için yatak aynı gün kurur; koltuk yıkamasıyla aynı randevuda yapılabilir.",
+    ],
+    faq: () => ({
+      q: "Yatak yıkandıktan sonra ne zaman kullanılabilir?",
+      a: "Yatak genellikle 6–8 saatte kurur. Odayı havalandırmanız kurumayı hızlandırır; kuruyana kadar üzerine çarşaf sermemenizi öneririz.",
+    }),
+  },
+  {
+    image: "pro-sandalye",
+    imageAlt: (n) => `${n.locative} minderli yemek sandalyesi yıkama`,
+    eyebrow: "Sandalye yıkama",
+    title: (n) => `${n.locative} sandalye yıkama`,
+    paragraphs: (n) => [
+      `Minderli yemek sandalyeleri yemek ve içecek lekelerine en açık eşyalardır. ${n.locative} yemek ve çalışma sandalyelerinizi oturak ve sırtlarıyla birlikte yerinde yıkıyoruz.`,
+      `Sandalyelerde küçük yıkama başlığıyla çalışıyor, ahşap ve metal aksama su değdirmeden yalnızca döşemeyi temizliyoruz. Sandalyeler koltuk yıkamasıyla aynı randevuda yapılabilir.`,
+    ],
+    faq: () => ({
+      q: "Sandalye yıkama koltukla aynı gün yapılabilir mi?",
+      a: "Evet. Sandalyeleri koltuk ya da köşe takımıyla aynı randevuda yıkıyoruz; fiyatı da tek seferde, fotoğraf üzerinden veriyoruz.",
+    }),
+  },
+  {
+    image: "pro-kadife",
+    imageAlt: (n) => `${n.locative} yeşil kadife koltuk yıkama`,
+    eyebrow: "Kadife koltuk yıkama",
+    title: (n) => `${n.locative} kadife koltuk yıkama`,
+    paragraphs: (n) => [
+      `Kadife, hav yapısı nedeniyle özen isteyen bir kumaştır; yanlış ürün ya da fazla su havı ezebilir ve iz bırakabilir. ${n.locative} kadife koltuklarda kumaşa uygun ürün kullanıyor, nemi düşük tutarak yıkıyoruz.`,
+      "Yıkamanın sonunda havı kendi yönünde fırçalıyor ve fazla suyu iyice çekiyoruz. Böylece kadife kuruduğunda rengini ve yumuşaklığını korur.",
+    ],
+    faq: () => ({
+      q: "Kadife koltuk yıkanır mı, zarar görür mü?",
+      a: "Kadife doğru ürün ve az nemle güvenle yıkanır. Kumaşa uygun ürün kullanıyor, havı yönünde fırçalıyor ve fazla suyu çekiyoruz; kadife kuruduğunda yumuşaklığını korur.",
+    }),
+  },
+  {
+    image: "pro-evcil-hayvan",
+    imageAlt: (n) => `${n.locative} evcil hayvanlı evde koltuk yıkama`,
+    eyebrow: "Koku ve tüy temizliği",
+    title: (n) => `${n.locative} evcil hayvan lekesi ve koku giderme`,
+    paragraphs: (n) => [
+      `Kedi ve köpek tüyü, idrar lekesi ve koku kumaşın derinine işler. ${n.locative} yıkamaya başlamadan önce tüyleri vakumla alıyor, lekelere ve koku olan bölgelere koku giderici ön işlem yapıyoruz.`,
+      "Ardından koltuğu makineyle derinlemesine yıkıyoruz. Çoğu durumda koku belirgin şekilde azalır ya da tamamen gider; koku süngere işlemişse bunu yıkamadan önce açıkça söylüyoruz.",
+    ],
+    faq: () => ({
+      q: "Evcil hayvan kokusu çıkar mı?",
+      a: "Çoğu durumda koku belirgin şekilde azalır ya da tamamen gider. Koku kumaşın altındaki süngere işlemişse bunu yıkamadan önce açıkça söylüyoruz.",
+    }),
+  },
+  {
+    image: "pro-berjer",
+    imageAlt: (n) => `${n.locative} berjer koltuk yıkama`,
+    eyebrow: "Berjer ve tekli koltuk",
+    title: (n) => `${n.locative} berjer ve tekli koltuk yıkama`,
+    paragraphs: (n) => [
+      `Berjer ve tekli koltuklarda kir en çok kolçaklarda, baş dayama kısmında ve oturma minderinde birikir. ${n.locative} berjerlerinizi bu bölgelere ayrıca ön işlem yaparak yıkıyoruz.`,
+      `Küçük yıkama başlığıyla dikiş ve kenarlara kadar ulaşıyor, ${METHOD} ile kiri kumaşın içinden çekiyoruz. Tekli koltuklar, takımın geri kalanıyla aynı randevuda yıkanabilir.`,
+    ],
+    faq: () => ({
+      q: "Berjer yıkama fiyatı nasıl belirleniyor?",
+      a: "Berjerin boyutuna ve kumaşına göre belirlenir. Fotoğrafını WhatsApp’tan gönderin, net fiyatı ücretsiz yazalım; takımın geri kalanıyla birlikte yıkanacaksa fiyatı tek seferde veriyoruz.",
+    }),
+  },
+  {
+    image: "pro-makine",
+    imageAlt: () => `${METHOD} C koltuk yıkama makinesi`,
+    eyebrow: "Ekipmanımız",
+    title: (n) => `${n.locative} ${METHOD} ile koltuk yıkama`,
+    paragraphs: (n) => [
+      `${n.locative} koltuk yıkamada ${METHOD} profesyonel püskürtme-emme makinesi kullanıyoruz. Makine temiz suyu ve kumaşa uygun ürünü kumaşın içine püskürtür, aynı anda kirle birlikte geri çeker.`,
+      "Temiz ve kirli su ayrı haznelerde tutulur; böylece koltuğa her geçişte temiz su verilir. Çalışırken zemini koruyucu örtüyle kaplıyor, iş bitince ortalığı toparlıyoruz.",
+    ],
+    faq: () => ({
+      q: "Yıkama sırasında zemin ve halı ıslanır mı?",
+      a: "Hayır. Makineyi ve çalışma alanını koruyucu örtü üzerine yerleştiriyoruz; su kumaşa püskürtüldüğü anda geri çekildiği için etrafa su sıçramaz.",
+    }),
+  },
+  {
+    image: "pro-aile-evi",
+    imageAlt: (n) => `${n.locative} açık renk köşe koltuk yıkama`,
+    eyebrow: "Hijyen",
+    title: (n) => `${n.locative} hijyenik koltuk temizliği`,
+    paragraphs: (n) => [
+      `Koltuk, evde en çok vakit geçirilen eşyadır; toz, ter ve yemek artıkları kumaşta birikir. ${n.locative} çocuklu ve evcil hayvanlı evlerde koltukları ev kullanımına uygun, kumaşa zarar vermeyen ürünlerle yıkıyoruz.`,
+      "Yıkamanın sonunda kumaşta ürün kalıntısı bırakmamak için durulama yapıyor, fazla nemi çekiyoruz. Koltuk genellikle 4–8 saat içinde kurur ve aynı gün kullanılabilir.",
+    ],
+    faq: () => ({
+      q: "Kullandığınız ürünler çocuklar ve evcil hayvanlar için güvenli mi?",
+      a: "Evlerde kullanıma uygun, kumaşa zarar vermeyen ürünler kullanıyoruz. Yıkama sonrası kumaşta kalıntı bırakmamak için durulama yapıyoruz.",
+    }),
+  },
+];
+
+// Tüm mahalle sayfalarında dönüşümlü kullanılan genel sorular (her sayfada üçü).
+const neighborhoodFaqPool: ((n: N) => Faq)[] = [
+  () => ({
+    q: "Koltuk yıkama nasıl yapılıyor?",
+    a: `Önce koltuk vakumlanır, lekelere kumaşa uygun ön işlem yapılır. Ardından ${METHOD} ile su kumaşın içine püskürtülüp kirle birlikte geri çekilir; son emmeyle fazla nem alınır.`,
+  }),
+  (n) => ({
+    q: `${n.locative} leke çıkarma da yapıyor musunuz?`,
+    a: "Evet. Yemek, içecek, ter ve evcil hayvan lekelerine kumaşa uygun ön işlem yapıp ardından koltuğu makineyle yıkıyoruz. Çıkmayabilecek lekeleri işe başlamadan önce söylüyoruz.",
+  }),
+  () => ({
+    q: "Yıkamadan sonra koltuk ne zaman kurur?",
+    a: "Kumaşa ve havaya göre genellikle 4–8 saat içinde kurur. Pencereleri açık tutmanız kurumayı hızlandırır; kuruyana kadar üzerine örtü sermemenizi öneririz.",
+  }),
+  (n) => ({
+    q: `${n.locative} köşe koltuk, sandalye ve yatak da yıkıyor musunuz?`,
+    a: "Evet. Tekli, ikili ve üçlü koltukların yanında L ve U köşe takımları, minderli sandalyeler ve tek ya da çift kişilik yatakları da aynı randevuda yıkıyoruz.",
+  }),
+  () => ({
+    q: "Kumaş, kadife ve keten koltukları yıkıyor musunuz?",
+    a: "Evet. Kumaşın türüne göre ürünü ve su miktarını ayarlıyoruz; kadife ve keten gibi hassas kumaşlarda nemi düşük tutarak yıkıyoruz.",
+  }),
+  () => ({
+    q: "Ödemeyi ne zaman yapıyorum?",
+    a: "Ödemeyi iş bittikten ve sonucu gördükten sonra yapıyorsunuz. Nakit veya havale/EFT kabul ediyoruz.",
+  }),
+];
+
+const heroDescriptions: ((n: N, d: D) => string)[] = [
+  (n) =>
+    `${n.locative} koltuk yıkama, köşe koltuk yıkama ve leke çıkarma hizmetini ${METHOD} profesyonel makinesiyle yerinde yapıyoruz. Leke, koku ve toz kumaşın derinliğinden alınır.`,
+  (n, d) =>
+    `${d.name} ${n.officialName}’nde koltuk, köşe takımı, sandalye ve yatak yıkama. Püskürtme-emme yöntemiyle derinlemesine temizlik, kumaşa uygun leke çıkarma ve hızlı kuruma.`,
+  (n) =>
+    `${n.locativeAdj} koltuklarınız için profesyonel yıkama: leke çıkarma, koku giderme ve derinlemesine temizlik. Fotoğraf gönderin, net fiyatı hemen yazalım.`,
+  (n) =>
+    `${METHOD} ile ${n.locative} profesyonel koltuk yıkama. Kumaş, kadife ve keten koltuklarda leke ve kokuyu yerinde, kumaşa zarar vermeden gideriyoruz.`,
+];
 
 export const neighborhoodCopy = {
   pageName: (n: N) => `${n.heading} koltuk yıkama`,
-  badge: (n: N, d: D) => `${d.name} · ${n.officialName}’ne evinize geliyoruz`,
+  badge: (n: N, d: D) => `${d.name} · ${n.officialName} · Profesyonel koltuk yıkama`,
   title: (n: N) => `${n.heading} koltuk yıkama`,
-  quickEyebrow: "Kısa bilgiler",
-  quickTitle: (n: N) => `${n.locative} koltuk yıkama hakkında bilmeniz gerekenler`,
-  /** "Kısa bilgiler" kutusunun ilk cümlesi; ardından mahalleye özel `summary` gelir. */
-  quickLead: (n: N, d: D) =>
-    `Özen Koltuk Yıkama, ${d.genitive} ${n.officialName}’nde koltuk, köşe takımı, sandalye ve yatak yıkamayı makinesiyle evinize gelerek yapar. Fiyat, WhatsApp’tan gönderdiğiniz fotoğrafa göre ücretsiz verilir; ödeme iş bitince alınır.`,
+  description: (n: NI, d: D) => heroDescriptions[n.index % heroDescriptions.length](n, d),
+  quickEyebrow: "Hizmet özeti",
+  quickTitle: (n: N) => `${n.locative} koltuk yıkama hizmeti`,
+  quickLead: (n: N, d: D) => [
+    `Özen Koltuk Yıkama, ${d.genitive} ${n.officialName}’nde koltuk yıkama, köşe koltuk yıkama, sandalye ve yatak yıkama ile leke çıkarma hizmeti verir. Yıkama, ${METHOD} profesyonel püskürtme-emme makinesiyle yerinde yapılır: önce toz alınır, lekelere kumaşa uygun ön işlem uygulanır, ardından kumaşa püskürtülen su kir ve lekeyle birlikte geri çekilir.`,
+    "Fiyat, WhatsApp’tan gönderdiğiniz fotoğrafa göre ücretsiz ve net olarak verilir; sonradan ek ücret çıkmaz, ödeme iş bitince alınır.",
+  ],
   factLabels: {
-    service: "Hizmet",
+    service: "Hizmetler",
+    method: "Yöntem",
+    stains: "Leke çıkarma",
+    fabrics: "Kumaş türleri",
     area: "Hizmet bölgesi",
     price: "Fiyat",
     drying: "Kuruma süresi",
@@ -275,26 +490,37 @@ export const neighborhoodCopy = {
     payment: "Ödeme",
   },
   factValues: {
-    service: "Evde koltuk, köşe takımı, sandalye ve yatak yıkama",
+    service: "Koltuk, köşe koltuk, sandalye ve yatak yıkama",
+    method: `${METHOD} ile püskürtme-emme (derinlemesine yıkama)`,
+    stains: "Yemek, içecek, ter ve evcil hayvan lekelerine kumaşa uygun ön işlem",
+    fabrics: "Kumaş, kadife ve keten döşemeler",
     area: (n: N, d: D) => `${n.officialName}, ${d.name} / İstanbul`,
     price: "Fotoğrafla ücretsiz ve net fiyat (WhatsApp)",
     drying: "Kumaşa ve havaya göre genellikle 4–8 saat",
     payment: "İş bittikten sonra; nakit veya havale/EFT",
   },
-  aboutTitle: (n: N) => `${n.locative} evinize nasıl geliyoruz?`,
-  servicesTitle: (n: N) => `${n.locative} neleri yıkıyoruz?`,
+  servicesTitle: (n: N) => `${n.locative} koltuk yıkama hizmetlerimiz`,
   pricingTitle: (n: N) => `${n.heading} koltuk yıkama fiyatları`,
-  faqTitle: (n: N) => `${n.heading} için sık sorulanlar`,
+  faqTitle: (n: N) => `${n.heading} koltuk yıkama: sık sorulanlar`,
+  /** Fiyat sorusu + konunun sorusu + genel havuzdan sırayla üç soru */
+  faq: (n: NI & { theme: NeighborhoodTheme }, d: D): Faq[] => [
+    {
+      q: `${n.heading} koltuk yıkama fiyatları ne kadar?`,
+      a: `Fiyat; koltuğun türüne, boyutuna ve kumaşına göre belirlenir. Koltuğunuzun fotoğrafını ve ${d.name} ${n.officialName}’nde olduğunuzu WhatsApp’tan yazın, net fiyatı ücretsiz iletelim. Sonradan ek ücret çıkmaz.`,
+    },
+    n.theme.faq(n),
+    ...[0, 1, 2].map((k) => neighborhoodFaqPool[(n.index + k) % neighborhoodFaqPool.length](n)),
+  ],
   nearbyEyebrow: "Yakın mahalleler",
-  nearbyTitle: (n: N) => `${n.dative} yakın mahallelerde de evinize geliyoruz`,
+  nearbyTitle: (n: N) => `${n.dative} yakın mahallelerde koltuk yıkama`,
   nearbyAll: (d: D) => `${d.genitive} tüm mahalleleri`,
-  finalTitle: (n: N) => `${n.locativeAdj} eviniz için fiyatı hemen öğrenin`,
+  finalTitle: (n: N) => `${n.locativeAdj} koltuklarınız için fiyatı hemen öğrenin`,
   // Başlıkta ilçe adı zaten geçiyorsa ("Esenyurt Fatih") tekrar eklenmez.
   metaTitle: (n: N, d: D) =>
     n.heading.startsWith(d.name) ? `${n.heading} Koltuk Yıkama | Özen` : `${n.heading} Koltuk Yıkama, ${d.name} | Özen`,
   metaDescription: (n: N, d: D) =>
-    `${n.officialName}, ${d.name}: koltuk, köşe takımı, sandalye ve yatak yıkamayı evinizde yapıyoruz. Fotoğraf gönderin, net fiyatı WhatsApp’tan öğrenin.`,
-  ogSubtitle: (n: N, d: D) => `${d.name} · ${n.officialName}’ne evinize geliyoruz.`,
+    `${n.officialName}, ${d.name}: profesyonel koltuk yıkama, köşe koltuk yıkama ve leke çıkarma. Fotoğraf gönderin, net fiyatı WhatsApp’tan hemen öğrenin.`,
+  ogSubtitle: (n: N, d: D) => `${d.name} · ${n.officialName}: koltuk yıkama ve leke çıkarma.`,
 };
 
 export const stickyBar = { call: "Ara", whatsapp: "WhatsApp’tan yaz" };

@@ -1,55 +1,54 @@
 // Mahalle detay sayfalarının verisi: /<ilçe-slug>/<mahalle-slug>
-// Türkçe ekler elle yazıldı; yerel bilgiler kaynaklarıyla birlikte (bkz. `sources`) araştırılarak eklendi.
-// Yeni bir mahalle eklemek için listeye bir kayıt eklemek yeterli; sayfa, sitemap, OG görseli,
-// ilçe sayfasındaki bağlantı ve llms.txt otomatik oluşur.
+// Mahalle kayıtları yalnızca adı, Türkçe ekleri ve komşuları tutar (elle yazıldı). Sayfa metni hizmet odaklıdır ve
+// `lib/content.ts` içindeki şablonlardan gelir; her mahalleye sırayla bir hizmet konusu (köşe koltuk, leke çıkarma,
+// yatak …) ve o konunun görseli atanır. Yeni bir mahalle eklemek için listeye bir kayıt eklemek yeterli; sayfa,
+// sitemap, OG görseli, ilçe sayfasındaki bağlantı ve llms.txt otomatik oluşur.
 
-import type { Faq } from "./districts";
+import { neighborhoodThemes, type NeighborhoodTheme } from "./content";
+import type { ImageName } from "./images";
 import { avcilarNeighborhoods } from "./neighborhoods-avcilar";
 import { beylikduzuNeighborhoods } from "./neighborhoods-beylikduzu";
 import { buyukcekmeceNeighborhoods } from "./neighborhoods-buyukcekmece";
-import { esenyurtNeighborhoods1 } from "./neighborhoods-esenyurt-1";
-import { esenyurtNeighborhoods2 } from "./neighborhoods-esenyurt-2";
-import type { ImageName } from "./images";
+import { esenyurtNeighborhoods } from "./neighborhoods-esenyurt";
 
-export type Neighborhood = {
+export type NeighborhoodEntry = {
   /** URL parçası: "yakuplu" → /beylikduzu-koltuk-yikama/yakuplu */
   slug: string;
   /** Bağlı olduğu ilçenin slug'ı (`lib/districts.ts`) */
   district: string;
   /** İlçe verisindeki `neighborhoods` listesindeki adla birebir aynı */
   name: string;
-  /** Başlıklarda kullanılan ad. Gündelik kelime olan adlarda "Barış Mahallesi" gibi, diğerlerinde `name`. */
+  /** Başlıklarda kullanılan ad. Başka ilçede de olan adlarda "Avcılar Cihangir" gibi, diğerlerinde `name`. */
   heading: string;
   officialName: string; // "Yakuplu Mahallesi"
   locative: string; // "Yakuplu’da"
   locativeAdj: string; // "Yakuplu’daki"
   dative: string; // "Yakuplu’ya"
   iAmIn: string; // "Yakuplu’dayım"
-  image: ImageName;
-  imageAlt: string;
-  /** Hero açıklaması */
-  description: string;
-  /** "Kısa bilgiler" kutusunun mahalleye özel cümlesi (yapay zekâ aramaları için doğrudan cevap) */
-  summary: string;
-  /** Mahalleye özel kısa bilgiler (Konum, Konut yapısı, Yakın noktalar …) */
-  facts: { label: string; value: string }[];
-  about: string[];
   /** Komşu mahallelerin slug'ları; başka ilçedekiler "<ilçe-slug>/<mahalle-slug>" biçiminde */
   nearby: string[];
-  faq: Faq[];
   /** Mahallenin Vikipedi sayfası (JSON-LD `sameAs`) */
   wikipedia?: string;
-  /** Yerel bilgilerin kaynakları (sayfada gösterilmez, düzenleme için) */
-  sources?: string[];
+};
+
+export type Neighborhood = NeighborhoodEntry & {
+  /** Sayfanın öne çıkan hizmet konusu ve görseli */
+  theme: NeighborhoodTheme;
+  image: ImageName;
+  imageAlt: string;
+  /** Metin varyantlarını seçmek için listedeki sırası */
+  index: number;
 };
 
 export const neighborhoods: Neighborhood[] = [
   ...beylikduzuNeighborhoods,
   ...avcilarNeighborhoods,
   ...buyukcekmeceNeighborhoods,
-  ...esenyurtNeighborhoods1,
-  ...esenyurtNeighborhoods2,
-];
+  ...esenyurtNeighborhoods,
+].map((n, index) => {
+  const theme = neighborhoodThemes[index % neighborhoodThemes.length];
+  return { ...n, theme, image: theme.image, imageAlt: theme.imageAlt(n), index };
+});
 
 export function neighborhoodsOf(districtSlug: string) {
   return neighborhoods.filter((n) => n.district === districtSlug);

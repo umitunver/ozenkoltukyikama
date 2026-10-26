@@ -11,6 +11,7 @@ import { PageShell } from "@/components/PageShell";
 import { Pricing } from "@/components/Pricing";
 import { QuickFacts } from "@/components/QuickFacts";
 import { Services } from "@/components/Services";
+import { TrustStrip } from "@/components/TrustStrip";
 import { breadcrumb, districtCopy, neighborhoodCopy } from "@/lib/content";
 import { getDistrict } from "@/lib/districts";
 import { pageMetadata } from "@/lib/metadata";
@@ -61,13 +62,17 @@ export default async function NeighborhoodPage({ params }: PageProps<"/[slug]/[m
   const values = neighborhoodCopy.factValues;
   const facts = [
     { label: labels.service, value: values.service },
+    { label: labels.method, value: values.method },
+    { label: labels.stains, value: values.stains },
+    { label: labels.fabrics, value: values.fabrics },
     { label: labels.area, value: values.area(n, district) },
-    ...n.facts,
     { label: labels.price, value: priceRange() ?? values.price },
     { label: labels.drying, value: values.drying },
     { label: labels.hours, value: site.hours },
     { label: labels.payment, value: values.payment },
   ];
+
+  const faq = neighborhoodCopy.faq(n, district);
 
   // Başka ilçedeki komşular "<ilçe-slug>/<mahalle-slug>" olarak yazılır; etiketine ilçe adı eklenir.
   const nearby = resolveNearby(n).map((x) => ({
@@ -85,22 +90,23 @@ export default async function NeighborhoodPage({ params }: PageProps<"/[slug]/[m
         variant="district"
         badge={neighborhoodCopy.badge(n, district)}
         title={neighborhoodCopy.title(n)}
-        description={n.description}
+        description={neighborhoodCopy.description(n, district)}
         image={n.image}
         imageAlt={n.imageAlt}
         whatsappMessage={message}
       />
+      <TrustStrip />
       <QuickFacts
         eyebrow={neighborhoodCopy.quickEyebrow}
         title={neighborhoodCopy.quickTitle(n)}
-        lead={[neighborhoodCopy.quickLead(n, district), n.summary]}
+        lead={neighborhoodCopy.quickLead(n, district)}
         facts={facts}
       />
-      <AreaAbout eyebrow={n.officialName} title={neighborhoodCopy.aboutTitle(n)} paragraphs={n.about} />
+      <AreaAbout eyebrow={n.theme.eyebrow} title={n.theme.title(n)} paragraphs={n.theme.paragraphs(n, district)} />
       <Services title={neighborhoodCopy.servicesTitle(n)} />
       <HowItWorks whatsappMessage={message} />
       <Pricing title={neighborhoodCopy.pricingTitle(n)} whatsappMessage={message} />
-      <Faq items={n.faq} title={neighborhoodCopy.faqTitle(n)} />
+      <Faq items={faq} title={neighborhoodCopy.faqTitle(n)} />
       <NearbyAreas
         eyebrow={neighborhoodCopy.nearbyEyebrow}
         title={neighborhoodCopy.nearbyTitle(n)}
@@ -109,7 +115,7 @@ export default async function NeighborhoodPage({ params }: PageProps<"/[slug]/[m
       />
       <FinalCta title={neighborhoodCopy.finalTitle(n)} whatsappMessage={message} />
 
-      <JsonLd data={faqSchema(n.faq)} />
+      <JsonLd data={faqSchema(faq)} />
       <JsonLd
         data={breadcrumbSchema([
           { name: breadcrumb.home, url: `${site.domain}/` },

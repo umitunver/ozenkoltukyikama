@@ -4,8 +4,11 @@
 //   public/logo-koyu.svg    koyu / petrol zemin      (Figma 12:51)
 //   public/logo-dikey.svg   dikey logo               (Figma 12:95)
 //   app/favicon.ico         16 / 32 / 48 px          ("İkon 160" katmanı)
-//   app/icon.png            512 px
-//   app/apple-icon.png      180 px, köşeler petrol-600 ile doldurulmuş
+//   app/icon1.svg           SVG favicon
+//   app/icon2.png           96 px  (Google arama sonucu favicon'u 48'in katı olmalı)
+//   app/icon3.png           192 px
+//   app/apple-icon.png      180 px, köşesiz (iOS kendi yuvarlatır)
+//   public/web-app-manifest-192x192.png, -512x512.png, -maskable-512x512.png   app/manifest.ts için
 //   lib/logo-paths.generated.ts   Header/Footer'daki inline SVG bileşeni için yol verisi
 //
 // Kullanım: npm run brand
@@ -70,13 +73,27 @@ export const logo = ${JSON.stringify(
 `;
 await writeFile(join(ROOT, "lib/logo-paths.generated.ts"), ts);
 
-// Favicon ve uygulama ikonları
-const icon = join(LOGO, "icon-160@4x.png");
-await sharp(icon).resize(512, 512).png().toFile(join(ROOT, "app/icon.png"));
-await sharp(icon).resize(180, 180).flatten({ background: "#146C7A" }).png().toFile(join(ROOT, "app/apple-icon.png"));
+// Favicon ve uygulama ikonları: Figma "İkon 160" (12:146) — 160×160 petrol-600 zemin, 36px köşe, beyaz amblem.
+const amblem = await part("icon-160.svg");
+const appIcon = (rx) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">` +
+  `<rect width="160" height="160" rx="${rx}" fill="#146C7A"/>` +
+  `<svg x="32.662" y="27.2" width="${amblem.w}" height="${amblem.h}" viewBox="0 0 ${amblem.w} ${amblem.h}">${amblem.inner}</svg>` +
+  `</svg>\n`;
+const rounded = appIcon(36); // köşeler şeffaf
+const square = appIcon(0); // apple-touch-icon ve maskable için tam dolu
+await writeFile(join(ROOT, "app/icon1.svg"), rounded);
+const png = (svg, size) => sharp(Buffer.from(svg), { density: 72 * (size / 160) * 2 }).resize(size, size).png();
+await png(rounded, 96).toFile(join(ROOT, "app/icon2.png"));
+await png(rounded, 192).toFile(join(ROOT, "app/icon3.png"));
+await png(square, 180).toFile(join(ROOT, "app/apple-icon.png"));
+await png(rounded, 192).toFile(join(ROOT, "public/web-app-manifest-192x192.png"));
+await png(rounded, 512).toFile(join(ROOT, "public/web-app-manifest-512x512.png"));
+await png(square, 512).toFile(join(ROOT, "public/web-app-manifest-maskable-512x512.png"));
+const icon = rounded;
 
 const icoSizes = [16, 32, 48];
-const pngs = await Promise.all(icoSizes.map((s) => sharp(icon).resize(s, s).png().toBuffer()));
+const pngs = await Promise.all(icoSizes.map((s) => png(icon, s).toBuffer()));
 const header = Buffer.alloc(6 + 16 * pngs.length);
 header.writeUInt16LE(0, 0);
 header.writeUInt16LE(1, 2);
@@ -96,4 +113,4 @@ pngs.forEach((buf, i) => {
 });
 await writeFile(join(ROOT, "app/favicon.ico"), Buffer.concat([header, ...pngs]));
 
-console.log("✓ logo SVG'leri, favicon.ico, icon.png, apple-icon.png ve lib/logo-paths.generated.ts üretildi");
+console.log("✓ logo SVG'leri, favicon.ico, icon1.svg, icon2/3.png, apple-icon.png, manifest ikonları ve lib/logo-paths.generated.ts üretildi");

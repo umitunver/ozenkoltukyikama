@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: seo.homeTitle,
   description: seo.homeDescription,
   applicationName: site.name,
+  appleWebApp: { title: site.shortName },
   formatDetection: { telephone: false, email: false, address: false },
 };
 

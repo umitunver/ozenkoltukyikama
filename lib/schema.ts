@@ -19,7 +19,7 @@ export function localBusinessSchema() {
     telephone: site.phoneE164,
     email: site.email,
     image: `${site.domain}${imageSrc("koltuk-yikama-evde")}`,
-    logo: `${site.domain}/icon.png`,
+    logo: `${site.domain}/web-app-manifest-512x512.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.neighborhood,

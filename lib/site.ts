@@ -3,6 +3,8 @@
 
 export const site = {
   name: "Özen Koltuk Yıkama",
+  /** Ana ekrana eklenince ikonun altında görünen kısa ad (manifest + apple-mobile-web-app-title). */
+  shortName: "Özen",
   domain: "https://ozenkoltukyikama.com",
   phoneDisplay: "0501 320 52 95",
   phoneHref: "tel:+905013205295",

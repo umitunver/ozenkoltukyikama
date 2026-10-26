@@ -70,7 +70,7 @@ export const districts: District[] = [
     image: "bolge-esenyurt",
     imageAlt: "Esenyurt’ta yıkama öncesi koltuk vakumlama",
     neighborhoods: [
-      "Akçaburgaz", "Akevler", "Akşemseddin", "Ardıçlı", "Aşık Veysel", "Atatürk", "Bağlarçeşme", "Balıkyolu",
+      "Akçaburgaz", "Akevler", "Akşemseddin", "Ardıçlı", "Aşık Veysel", "Atatürk", "Merkez (Bağlarçeşme)", "Balıkyolu",
       "Barbaros Hayrettin Paşa", "Battalgazi", "Çınar", "Cumhuriyet", "Esenkent", "Fatih", "Gökevler", "Güzelyurt",
       "Hürriyet", "İncirtepe", "İnönü", "İstiklal", "Koza", "Mehmet Akif Ersoy", "Mehterçeşme", "Mevlana",
       "Namık Kemal", "Necip Fazıl Kısakürek", "Orhan Gazi", "Örnek", "Osmangazi", "Pınar", "Piri Reis", "Saadetdere",

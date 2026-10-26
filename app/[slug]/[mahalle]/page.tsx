@@ -14,7 +14,7 @@ import { Services } from "@/components/Services";
 import { breadcrumb, districtCopy, neighborhoodCopy } from "@/lib/content";
 import { getDistrict } from "@/lib/districts";
 import { pageMetadata } from "@/lib/metadata";
-import { getNeighborhood, neighborhoodPath, neighborhoods } from "@/lib/neighborhoods";
+import { getNeighborhood, neighborhoodPath, neighborhoods, resolveNearby } from "@/lib/neighborhoods";
 import { breadcrumbSchema, faqSchema, neighborhoodServiceSchema } from "@/lib/schema";
 import { priceRange, site, whatsappMessages } from "@/lib/site";
 
@@ -69,10 +69,14 @@ export default async function NeighborhoodPage({ params }: PageProps<"/[slug]/[m
     { label: labels.payment, value: values.payment },
   ];
 
-  const nearby = n.nearby
-    .map((slug) => neighborhoods.find((x) => x.district === n.district && x.slug === slug))
-    .filter((x) => x !== undefined)
-    .map((x) => ({ href: neighborhoodPath(x), label: neighborhoodCopy.pageName(x) }));
+  // Başka ilçedeki komşular "<ilçe-slug>/<mahalle-slug>" olarak yazılır; etiketine ilçe adı eklenir.
+  const nearby = resolveNearby(n).map((x) => ({
+    href: neighborhoodPath(x),
+    label:
+      x.district === n.district
+        ? neighborhoodCopy.pageName(x)
+        : `${neighborhoodCopy.pageName(x)} (${getDistrict(x.district)!.name})`,
+  }));
 
   return (
     <PageShell whatsappMessage={message}>

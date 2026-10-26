@@ -247,6 +247,186 @@
       1536
     ]
   },
+  "sahne-asansorsuz-merdiven": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-bahce-minder": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-berjer": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-cocuk-yatagi": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-cocuklu-ev": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-evcil-hayvan": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-gol-manzara": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-havuzlu-site": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-kirli-su-tanki": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-koy-evi": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-ogrenci-evi": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-rezidans-kule": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-site-giris": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-u-kose": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
+  "sahne-yazlik": {
+    "width": 1264,
+    "height": 848,
+    "widths": [
+      320,
+      480,
+      640,
+      768,
+      1080,
+      1264
+    ]
+  },
   "yatak-yikama": {
     "width": 1536,
     "height": 1024,

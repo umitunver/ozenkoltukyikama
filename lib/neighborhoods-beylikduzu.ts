@@ -34,7 +34,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "Adnan Kahveci Mahallesi, 2007’de yaklaşık 23 bin olan nüfusunu 2025’te 111 bine çıkararak İstanbul’un en kalabalık mahallesi oldu. 2015 verisine göre Beylikdüzü’ndeki konutların dörtte biri bu mahallede ve evlerin çoğu çok katlı site bloklarında. Perlavista AVM, Yaşam Vadisi’nin 2. etabı ve kaykay parkı da mahallenin sınırları içinde.",
       "Sitelerde gelişimizi önceden planlıyoruz: güvenliğe isminizi bırakmanız, misafir otoparkı varsa yerini söylemeniz yeterli. Makinemiz taşınabilir, asansörle dairenize çıkarıyoruz; sizin ek bir şey hazırlamanıza gerek yok. Site dairelerinde en sık köşe takımı ve açık renkli kumaş koltuk yıkıyoruz; fazla suyu iyice çektiğimiz için koltuk aynı gün kullanılabilir hâle gelir.",
     ],
-    nearby: ["cumhuriyet", "baris", "kavakli", "dereagzi", "gurpinar"],
+    nearby: ["cumhuriyet", "baris", "kavakli", "dereagzi", "gurpinar", "buyukcekmece-koltuk-yikama/pinartepe", "buyukcekmece-koltuk-yikama/cumhuriyet"],
     faq: [
       {
         q: "Adnan Kahveci’deki sitelere geliyor musunuz?",
@@ -88,7 +88,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "Barış Mahallesi yaklaşık 2,6 km²’lik alanıyla Beylikdüzü’nün küçük mahallelerinden biri, ama ilçe nüfusunun önemli bir bölümünü barındırıyor; 2015 verisine göre ilçenin en yoğun ikinci mahallesi. Rıfat Ilgaz Caddesi’ndeki Koral Berkin Kutlu Spor Tesisi ve Eğitim Vadisi Bulvarı’ndaki İbrahim Cevahir Camii mahallenin bilinen noktaları.",
       "Yoğun apartman bloklarında otopark sınırlı olabiliyor; adresinizi yazarken binanın önünde kısa süreli park imkânı olup olmadığını belirtirseniz gelişimizi ona göre ayarlıyoruz. Dar salonlarda koltuğu yerinden fazla oynatmadan, zemini plastik örtüyle koruyarak çalışıyoruz.",
     ],
-    nearby: ["buyuksehir", "yakuplu", "kavakli", "adnan-kahveci"],
+    nearby: ["buyuksehir", "yakuplu", "kavakli", "adnan-kahveci", "esenyurt-koltuk-yikama/mevlana"],
     faq: [
       {
         q: "Beylikdüzü Barış Mahallesi’nin her yerine geliyor musunuz?",
@@ -142,7 +142,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "Büyükşehir, yaklaşık 1 km²’lik alanıyla Beylikdüzü’nün yüzölçümü en küçük ama yapılaşması en yoğun mahallesi; 2015 verisine göre bina başına ortalama 37 konut düşüyor, yani evlerin çoğu yüksek katlı rezidans ve site bloklarında. Beylikdüzü Belediyesi’nin ana binası, Beylicium AVM ve içindeki Erol Günaydın Sahnesi bu mahallede.",
       "Rezidanslarda yönetim ve güvenlik kuralları sıkı olabiliyor. Randevudan önce blok ve kat bilgisini, yük asansörü kullanılması gerekip gerekmediğini sorup gelişimizi buna göre planlıyoruz. Yüksek katlarda pencereler sınırlı açıldığı için yıkamanın sonunda fazla suyu özellikle iyi çekiyoruz.",
     ],
-    nearby: ["baris", "cumhuriyet"],
+    nearby: ["baris", "cumhuriyet", "esenyurt-koltuk-yikama/mevlana"],
     faq: [
       {
         q: "Rezidanslara ve yüksek katlara geliyor musunuz?",
@@ -196,7 +196,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "Cumhuriyet Mahallesi, Beylikdüzü’nde E-5’in hemen kenarında yer alıyor ve metrobüsle ulaşımı en kolay mahallelerden biri. Atatürk Bulvarı’ndaki Atatürk Kültür ve Sanat Merkezi ile Yaşam Vadisi’nin 1. etabı burada; 2016 verisine göre ilçedeki park alanlarının en büyük payı da bu mahallede.",
       "Mahallede orta ve yüksek katlı apartmanlar ağırlıkta. Ailelerin uzun yıllar kullandığı koltuklarda yemek, çay ve kahve lekeleri sık görülüyor; bu lekelere önce kumaşa uygun ürünle ön işlem yapıyor, ardından makineyle yıkayıp kirli suyu geri çekiyoruz. Çok eski lekelerde ne kadarının çıkabileceğini işe başlamadan söylüyoruz.",
     ],
-    nearby: ["buyuksehir", "baris", "adnan-kahveci"],
+    nearby: ["buyuksehir", "baris", "adnan-kahveci", "esenyurt-koltuk-yikama/barbaros-hayrettin-pasa"],
     faq: [
       {
         q: "Beylikdüzü Cumhuriyet Mahallesi’ne mi, Esenyurt’takine mi geliyorsunuz?",
@@ -306,7 +306,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "1961’e kadar adı Anarşa olan Gürpınar, Kavaklı ve Yakuplu ile birlikte Beylikdüzü’nün üç tarihî köy merkezinden biri; 1987’de belde oldu, 2008’de Beylikdüzü’ne bağlandı. Büyükçekmece Koyu’na bakan sahili ve halk plajıyla bilinen mahallede yapılaşma orta ve az katlı; 2015 verisine göre bina başına ortalama 3,8 konut düşüyor.",
       "Bahçeli evlerde ve yazlıklarda büyük U ve L köşe takımları, bahçe minderleri ve yemek sandalyeleri sık oluyor; hepsini aynı ziyarette yıkayabiliyoruz. Uzun süre kapalı kalan evlerde önce koltuğu iyice vakumluyor, ardından yıkayıp fazla suyu çekiyoruz. Kuruma için pencereleri açık tutmanızı öneriyoruz.",
     ],
-    nearby: ["dereagzi", "adnan-kahveci"],
+    nearby: ["dereagzi", "adnan-kahveci", "buyukcekmece-koltuk-yikama/pinartepe"],
     faq: [
       {
         q: "Gürpınar’daki yazlık evlere geliyor musunuz?",
@@ -521,9 +521,9 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
     ],
     about: [
       "Yakuplu, 1993’te belde olan ve 2008’de Beylikdüzü’ne bağlanan tarihî bir köy merkezi. Alanı en geniş Beylikdüzü mahallesi olan Yakuplu’da 2015 verisine göre ilçedeki binaların dörtte biri bulunuyor; çoğu az katlı apartman ve müstakil ev. Fatih Sultan Mehmet Kültür ve Sanat Merkezi, Şehir Tiyatroları Rasim Öztekin Sahnesi ve İBB’nin Yakuplu Kent Ormanı mahallenin bilinen noktaları.",
-      "Eski apartmanlarda asansör olmayabiliyor; makinemiz taşınabilir, merdivenle kendimiz çıkarıyoruz. Uzun yıllar kullanılmış berjer ve koltuklarda önce iyice vakumluyor, lekelere ön işlem yapıyor, sonra makineyle derinlemesine yıkıyoruz. Metrobüsle gelenlerin bildiği Beylikdüzü ve Güzelyurt durakları mahallenin hemen kuzeyinde, Esenyurt tarafında.",
+      "Eski apartmanlarda asansör olmayabiliyor; makinemiz taşınabilir, merdivenle kendimiz çıkarıyoruz. Uzun yıllar kullanılmış berjer ve koltuklarda önce iyice vakumluyor, lekelere ön işlem yapıyor, sonra makineyle derinlemesine yıkıyoruz. E-5 üzerindeki Güzelyurt ve Haramidere metrobüs durakları, mahallenin Esenyurt Güzelyurt ile olan kuzey sınırında.",
     ],
-    nearby: ["baris", "kavakli", "marmara"],
+    nearby: ["baris", "kavakli", "marmara", "esenyurt-koltuk-yikama/guzelyurt", "esenyurt-koltuk-yikama/namik-kemal", "esenyurt-koltuk-yikama/turgut-ozal", "esenyurt-koltuk-yikama/zafer", "avcilar-koltuk-yikama/ambarli", "avcilar-koltuk-yikama/cihangir"],
     faq: [
       {
         q: "Yakuplu’nun her yerine geliyor musunuz?",
@@ -550,7 +550,7 @@ export const beylikduzuNeighborhoods: Neighborhood[] = [
       "https://www.beylikduzu.istanbul/tesis/fatih-sultan-mehmet-kultur-ve-sanat-merkezi",
       "https://www.beylikduzu.istanbul/tesis/sehir-tiyatrolari-rasim-oztekin-sahnesi",
       "https://www.gazetebirlik.com/istanbul-haberleri/mesele-kanal-degil-tamamen-duygusal/64480",
-      "https://en.wikipedia.org/wiki/Beylikdüzü_(Metrobus)",
+      "https://tr.wikipedia.org/wiki/Güzelyurt_Metrobüs_İstasyonu",
     ],
   },
 ];

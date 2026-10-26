@@ -289,7 +289,9 @@ export const neighborhoodCopy = {
   nearbyTitle: (n: N) => `${n.dative} yakın mahallelerde de evinize geliyoruz`,
   nearbyAll: (d: D) => `${d.genitive} tüm mahalleleri`,
   finalTitle: (n: N) => `${n.locativeAdj} eviniz için fiyatı hemen öğrenin`,
-  metaTitle: (n: N, d: D) => `${n.heading} Koltuk Yıkama, ${d.name} | Özen`,
+  // Başlıkta ilçe adı zaten geçiyorsa ("Esenyurt Fatih") tekrar eklenmez.
+  metaTitle: (n: N, d: D) =>
+    n.heading.startsWith(d.name) ? `${n.heading} Koltuk Yıkama | Özen` : `${n.heading} Koltuk Yıkama, ${d.name} | Özen`,
   metaDescription: (n: N, d: D) =>
     `${n.officialName}, ${d.name}: koltuk, köşe takımı, sandalye ve yatak yıkamayı evinizde yapıyoruz. Fotoğraf gönderin, net fiyatı WhatsApp’tan öğrenin.`,
   ogSubtitle: (n: N, d: D) => `${d.name} · ${n.officialName}’ne evinize geliyoruz.`,

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { footer, services } from "@/lib/content";
 import { districts } from "@/lib/districts";
 import { site, whatsappHref } from "@/lib/site";
+import { FacebookIcon } from "./icons";
 import { Logo } from "./Logo";
 
 const linkClass = "inline-block py-0.5 text-[15px] text-kum-700 hover:text-petrol-600";
@@ -28,6 +29,18 @@ export function Footer({ whatsappMessage }: { whatsappMessage: string }) {
               <Logo className="h-11 w-auto" />
             </Link>
             <p className="max-w-[320px] text-[15px] leading-[1.55] text-kum-600">{footer.description}</p>
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener"
+              aria-label={footer.facebookLabel}
+              title={footer.facebookLabel}
+              data-cta="facebook"
+              data-location="footer"
+              className="inline-flex size-10 items-center justify-center self-start rounded-full bg-petrol-50 text-petrol-700 transition-colors hover:bg-petrol-100 hover:text-petrol-800"
+            >
+              <FacebookIcon className="size-5" />
+            </a>
           </div>
 
           <div className="grid grid-cols-2 gap-7 sm:grid-cols-3 lg:flex lg:gap-16">
@@ -72,18 +85,6 @@ export function Footer({ whatsappMessage }: { whatsappMessage: string }) {
                     className={linkClass}
                   >
                     {footer.whatsappLabel}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={site.social.facebook}
-                    target="_blank"
-                    rel="noopener"
-                    data-cta="facebook"
-                    data-location="footer"
-                    className={linkClass}
-                  >
-                    {footer.facebookLabel}
                   </a>
                 </li>
                 <li>

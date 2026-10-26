@@ -4,8 +4,10 @@ import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
 
+// /manifest.json — `app/manifest.ts` dosya kuralı yerine route handler: o kural `.webmanifest` uzantısı üretiyor ve
+// nginx bu uzantıyı tanımadığı için `application/octet-stream` dönüyordu. `.json` her sunucuda doğru tipte sunulur.
 // İkonlar `npm run brand` ile üretilir (public/web-app-manifest-*.png).
-export default function manifest(): MetadataRoute.Manifest {
+function manifest(): MetadataRoute.Manifest {
   return {
     name: site.name,
     short_name: site.shortName,
@@ -22,4 +24,8 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/web-app-manifest-maskable-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
+}
+
+export function GET() {
+  return Response.json(manifest());
 }

@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: seo.homeTitle,
   description: seo.homeDescription,
   applicationName: site.name,
+  manifest: "/manifest.json",
   appleWebApp: { title: site.shortName },
   verification: site.verification,
   formatDetection: { telephone: false, email: false, address: false },
